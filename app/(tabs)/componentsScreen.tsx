@@ -84,7 +84,6 @@ export default function TabTwoScreen() {
 
         <InteractiveTextInput
           placeholder="Password"
-          secureTextEntry
           value={inputPasswd}
           onChangeText={(value) => setInputPasswd(value)}
           enableIcon
@@ -97,8 +96,7 @@ export default function TabTwoScreen() {
             color: colorScheme === "dark" ? "#FFF" : "#000",
             marginTop: 16,
           }}
-          onIconPress={() => {}}
-          keyboardType={seePasswd ? "default" : "visible-password"}
+          secureTextEntry={!seePasswd}
           IconComponent={
             seePasswd ? (
               <IconSymbol

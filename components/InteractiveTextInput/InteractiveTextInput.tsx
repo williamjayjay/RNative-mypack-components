@@ -11,7 +11,6 @@ import {
   TextStyle,
   ImageStyle,
   ImageSourcePropType,
-  KeyboardTypeOptions,
 } from "react-native";
 
 /**
@@ -41,7 +40,6 @@ export interface IInteractiveTextInputProps extends TextInputProps {
   onBlur?: () => void;
   onIconPress?: () => void;
   IconComponent?: React.ReactNode;
-  keyboardType?: KeyboardTypeOptions;
 }
 
 interface IState {}
@@ -79,7 +77,7 @@ export default class InteractiveTextInput extends React.Component<
   /* -------------------------------------------------------------------------- */
 
   renderIcon = () => {
-    const { enableIcon, iconContainerStyle, onIconPress, IconComponent, keyboardType } =
+    const { enableIcon, iconContainerStyle, onIconPress, IconComponent } =
       this.props;
 
     if (!enableIcon || !IconComponent) return null;
@@ -118,7 +116,7 @@ export default class InteractiveTextInput extends React.Component<
           this.props.textInputStyle,
           { paddingRight: this.props.enableIcon ? 48 : 0 },
         ]}
-        keyboardType={this.props.keyboardType}
+        secureTextEntry={this.props.secureTextEntry}
         onFocus={() => {
           this.showFocusColor();
           this.props.onFocus && this.props.onFocus();
